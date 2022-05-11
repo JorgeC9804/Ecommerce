@@ -1,0 +1,311 @@
+.principal {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: rgb(40, 40, 40);
+}
+h3 {
+  position: absolute;
+  left: 200px;
+}
+.presentation {
+  position: relative;
+  border-left: 1px solid rgb(0, 195, 255);
+  border-right: 1px solid rgb(0, 195, 255);
+  box-shadow: 10px 0px 10px rgba(42, 80, 81, 0.313);
+  top: 100px;
+  left: 70px;
+  width: 800px;
+  height: 80vh;
+}
+.session {
+  position: relative;
+  background: linear-gradient(rgba(12, 12, 12, 0.861), #3d3936dd);
+  top: 100px;
+  left: 180px;
+  width: 400px;
+  height: 80vh;
+  border-radius: 10px;
+}
+.submit-session {
+  position: absolute;
+  top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+.session-sign-up-in {
+  width: 45%;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  border: 1px solid;
+  cursor: pointer;
+}
+.sign-in {
+  border: 1px solid;
+  text-align: center;
+  width: 100px;
+  text-decoration: none;
+}
+.sign {
+  position: absolute;
+  top: 85%;
+  background: rgb(0, 172, 172);
+  color: rgb(56, 56, 56);
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  font-size: 19px;
+  width: 80%;
+  cursor: pointer;
+}
+.input {
+  position: relative;
+  top: 5px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid rgba(0, 137, 114, 0.765);
+  font-size: 16px;
+  outline: 0;
+  color: rgb(0, 120, 129);
+  padding: 8px;
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 165, 173, 0.703);
+}
+.shadow-desactive {
+  animation-name: shadow-active;
+  animation-duration: 2s;
+}
+.shadow-active {
+  position: relative;
+  box-shadow: 1px 1px 10px rgba(0, 165, 173, 0.703);
+  transition: 0.3s;
+}
+.blue {
+  background: rgb(0, 172, 172);
+  border-radius: 8px;
+}
+.error {
+  box-shadow: 1px 1px 10px rgb(215, 36, 0);
+  border-bottom: 3px solid rgb(215, 36, 0);
+  background: rgb(215, 36, 0);
+  animation-name: error;
+  animation-duration: 5s;
+}
+.column label {
+  position: relative;
+  top: 90px;
+  margin: 20px;
+  color: rgba(206, 206, 206, 0.868);
+}
+
+/* ----------------------------- presentation ---------------------------- */
+
+.choose {
+  height: 100%;
+  width: 800px;
+}
+.cart {
+  width: 450px;
+  padding: 15px;
+  box-sizing: border-box;
+  height: 400px;
+  box-shadow: -10px 10px 15px;
+  background: linear-gradient(rgb(211, 104, 22), #201f1ee6);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.desactiveCartOne {
+  position: absolute;
+  left: 80px;
+  animation-name: desactiveCartOne;
+  animation-duration: 0.4s;
+}
+.desactiveCartTwo {
+  position: absolute;
+  left: 160px;
+  animation-name: desactiveCartTwo;
+  animation-duration: 0.4s;
+}
+.desactiveCartThree {
+  position: absolute;
+  left: 240px;
+  animation-name: desactiveCartThree;
+  animation-duration: 0.4s;
+}
+
+/* ----------------------------- cart ---------------------------- */
+
+.cart-1 {
+  position: absolute;
+  left: 0px;
+  animation-name: cartOne;
+  animation-duration: 0.4s;
+}
+.cart-2 {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  animation-name: cartTwo;
+  animation-duration: 0.4s;
+}
+.cart-3 {
+  position: absolute;
+  top: 120px;
+  left: 80px;
+  animation-name: cartThree;
+  animation-duration: 0.4s;
+}
+
+/* ----------------------------- presentation position left ---------------------------- */
+.p-10-l {
+  position: absolute;
+  left: 80px;
+}
+.p-20-l {
+  position: absolute;
+  left: 160px;
+}
+.p-30-l {
+  position: absolute;
+  left: 240px;
+}
+.p-40-l {
+  position: absolute;
+  left: 320px;
+}
+
+/* ----------------------------- presentation position right ---------------------------- */
+.p-10-r {
+  position: absolute;
+  right: 35px;
+}
+.p-20-r {
+  position: absolute;
+  right: 70px;
+}
+.p-30-r {
+  position: absolute;
+  right: 105px;
+}
+
+/* ----------------------------- presentation position top ---------------------------- */
+.p-10-t {
+  position: absolute;
+  top: 50px;
+}
+.p-20-t {
+  position: absolute;
+  top: 80px;
+}
+.p-30-t {
+  position: absolute;
+  top: 110px;
+}
+.p-40-t {
+  position: absolute;
+  top: 140px;
+}
+
+/* ----------------------------- hover ---------------------------- */
+.cart:hover {
+  box-shadow: -15px 15px 15px;
+}
+
+/* ----------------------------- general ---------------------------- */
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----------------------------- img ---------------------------- */
+.presentation img {
+  height: 250px;
+}
+
+/* ----------------------------- color ---------------------------- */
+
+/* @media (max-width: 700px) {
+  .presentation {
+    width: 70%;
+  }
+} */
+
+/* ----------------------------- @keyframe active ---------------------------- */
+
+@keyframes shadow-active {
+  to {
+    box-shadow: 0;
+  }
+}
+
+@keyframes cartOne {
+  from {
+    top: 50px;
+    left: 80px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes cartTwo {
+  from {
+    top: 80px;
+    left: 160px;
+  }
+  to {
+    left: 30px;
+  }
+}
+
+@keyframes cartThree {
+  from {
+    top: 110px;
+    left: 240px;
+  }
+  to {
+    left: 80px;
+  }
+}
+
+/* ----------------------------- @keyframe desactive ---------------------------- */
+
+@keyframes desactiveCartOne {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 80px;
+  }
+}
+@keyframes desactiveCartTwo {
+  from {
+    left: 30px;
+  }
+  to {
+    left: 160px;
+  }
+}
+@keyframes desactiveCartThree {
+  from {
+    left: 80px;
+  }
+  to {
+    left: 240px;
+  }
+}

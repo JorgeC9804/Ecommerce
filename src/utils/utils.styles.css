@@ -1,0 +1,97 @@
+.principal-search {
+  position: absolute;
+  top: 20px;
+  right: 110px;
+  width: 250px;
+  height: 30px;
+  background: rgba(215, 220, 205, 0.852);
+  border-radius: 0px 25px 25px 0px;
+  border: none;
+  padding: 10px -20px;
+  box-sizing: border-box;
+  font-size: 17px;
+  font-weight: 100;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  outline: 0;
+  color: rgb(22, 70, 122);
+  z-index: 2;
+}
+.icon-search {
+  position: absolute;
+  top: 20px;
+  right: 360px;
+  height: 30px;
+  width: 40px;
+  font-size: 30px;
+  box-sizing: border-box;
+  border-radius: 25px 0px 0px 25px;
+  border: none;
+  background: rgba(215, 220, 205, 0.852);
+  cursor: pointer;
+  z-index: 4;
+}
+.icon-s {
+  font-size: 17px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -------------------------- presentation --------------------------- */
+.carts {
+  font-size: 30px;
+  transform: rotate(-90deg);
+  padding: 10px;
+  rotate: 45deg;
+  color: rgb(19, 45, 37);
+}
+.p-a-10 {
+  position: absolute;
+  top: 70px;
+  left: -50px;
+}
+.p-a-20 {
+  position: absolute;
+  top: 90px;
+  left: -20px;
+}
+.p-a-30 {
+  position: absolute;
+  top: 110px;
+  left: 0px;
+}
+.v-line {
+  position: absolute;
+  top: 30px;
+  background: rgb(252, 217, 135);
+  left: 60px;
+  border-left: 1px solid rgb(255, 153, 0);
+  height: 50%;
+  width: 350px;
+}
+
+/* -------------------------- estadistica --------------------------- */
+
+.circle {
+  border: 18px solid black;
+  box-shadow: 0px 0px 15px rgb(0, 157, 255);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.c-a-p {
+  position: absolute;
+  top: 85%;
+  left: 5%;
+}
+
+/* -------------------------- line estadistica --------------------------- */
+
+/* -------------------------- hover --------------------------- */
+
+.circle:hover {
+  box-shadow: 0px 0px 25px rgb(0, 157, 255);
+}
