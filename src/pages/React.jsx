@@ -7,7 +7,7 @@ const ReactJSX = () => {
   /**
    * primero se monta el componente, se ejecuta el componente
    * ReducerLinks, enseguida se monta Form al igual que Table.
-   * En Table se trata de ejecutar un map vacio, lo que genera un
+   * si Table se trata de ejecutar un map undefined, lo que genera un
    * error
    */
 

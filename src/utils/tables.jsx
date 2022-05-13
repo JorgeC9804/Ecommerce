@@ -17,7 +17,7 @@ const Table = ({ storageLinks, handleSubmitDelete, handleSubmitUpdate }) => {
               <>
                 <tr>
                   <td>
-                    <a href={link} target="_blank">
+                    <a href={link} target="_blank" rel="noreferrer">
                       {linkName}
                     </a>
                   </td>

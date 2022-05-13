@@ -1,26 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import Personal from "../pages/Personal";
-import { FaBowlingBall, FaUncharted } from "react-icons/fa";
+import { Link } from "react-router-dom";
+// import Personal from "../pages/Personal";
+import { FaUncharted } from "react-icons/fa";
 import { BsPinAngle, BsPinAngleFill } from "react-icons/bs";
 import { MdSell, MdAudiotrack, MdBackpack, MdWallpaper } from "react-icons/md";
 import { CgPathIntersect } from "react-icons/cg";
 import "./header.styles.css";
 
 const Header = () => {
-  const [personal, setPersonal] = useState(false);
+  // const [personal, setPersonal] = useState(false);
   const [mouse, setMouse] = useState(false);
   const [headerStatic, setHeaderStatic] = useState(false);
   const headerRef = useRef(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handlePersonal = () => {
+  /*const handlePersonal = () => {
     setPersonal(!personal);
     if (personal) {
       navigate("/");
     }
-  };
+  };*/
+
   const handleHeaderStatic = () => {
     setHeaderStatic(!headerStatic);
   };
@@ -127,7 +127,7 @@ const Header = () => {
         </nav>
       </div>
 
-      {personal ? <Personal /> : ""}
+      {/* personal ? <Personal /> : ""*/}
     </section>
   );
 };

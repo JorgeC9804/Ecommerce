@@ -20,6 +20,9 @@ const reducer = (state, action) => {
 
     case "UPDATE_LINK":
       return state;
+
+    default:
+      return state;
   }
 };
 
@@ -89,7 +92,7 @@ const ReducerLinks = ({ initialState, nameStorage }) => {
     state.forEach(element => {
       setId(element.id + 1);
     });
-  }, [handleSubmitSet]);
+  }, [initialState, nameStorage, state]);
 
   return (
     <div>

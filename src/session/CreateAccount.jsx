@@ -59,7 +59,7 @@ const CreateAccount = () => {
   };
 
   const CreateUser = async () => {
-    await axios.post("http://localhost:3000/users", {
+    await axios.post("http://localhost:3000/api/v1/users", {
       name,
       email,
       user,
@@ -77,7 +77,7 @@ const CreateAccount = () => {
 
   useEffect(() => {
     const UsersData = async () => {
-      const { data } = await axios.get("http://localhost:3000/users");
+      const { data } = await axios.get("http://localhost:3000/api/v1/users");
       const { users } = data.data;
       setId(users.length);
       console.log("server");

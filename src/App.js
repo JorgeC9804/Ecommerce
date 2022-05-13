@@ -11,16 +11,19 @@ import Backpacks from "./pages/Backpacks";
 import Wallpaper from "./pages/Wallpaper";
 import Art from "./pages/Art";
 import Search from "./utils/Search";
+import OutstandingLinks from "./pages/OutstandingLinks";
 import "./App.css";
 
 function App() {
   useEffect(() => {
     if (
       !JSON.parse(localStorage.getItem("storageLinkNodejs")) ||
-      !JSON.parse(localStorage.getItem("storageLinkReact"))
+      !JSON.parse(localStorage.getItem("storageLinkReact")) ||
+      !JSON.parse(localStorage.getItem("storageLinkOutstandingLinks"))
     ) {
       localStorage.setItem("storageLinkReact", JSON.stringify([]));
       localStorage.setItem("storageLinkNodejs", JSON.stringify([]));
+      localStorage.setItem("storageLinkOutstandingLinks", JSON.stringify([]));
     }
   }, []);
 
@@ -32,6 +35,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/reactjsx" element={<ReactJSX />} />
         <Route path="/nodejs" element={<NodeJS />} />
+        <Route path="/OutstandingLinks" element={<OutstandingLinks />} />
         <Route path="/most-sold" element={<MostSold />} />
         <Route path="/accesories" element={<Accesories />} />
         <Route path="/audio" element={<Audio />} />
