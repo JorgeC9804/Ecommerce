@@ -20,7 +20,7 @@ import "./App.css";
 
 function App() {
   const login = JSON.parse(localStorage.getItem("login"));
-  const [create, setCreate] = useState(false);
+  const [general, setGeneral] = useState(false);
   const [userInfo, setUserInfo] = useState([]);
   const [administrator, setAdmin] = useState(
     login ? login.data.data.user.admin : ""
@@ -32,7 +32,7 @@ function App() {
     const login = JSON.parse(localStorage.getItem("login"));
     setUserInfo(login ? login.data.data.user : "");
     setAdmin(login ? login.data.data.user.admin : "");
-    setCreate(login ? true : false);
+    setGeneral(login ? true : false);
   }, [admin, user]);
 
   useEffect(() => {
@@ -49,10 +49,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header administrator={administrator} create={create} />
+      <Header administrator={administrator} general={general} />
       <Search />
       <Routes>
-        <Route path="/" element={<Home userInfo={userInfo} />} />
+        <Route
+          path="/"
+          element={<Home userInfo={userInfo} general={general} />}
+        />
         <Route
           path="/administrator"
           element={
@@ -71,7 +74,7 @@ function App() {
         />
         <Route
           path="/upload-product"
-          element={create ? <UplodadProduct /> : <Navigate replace to="/" />}
+          element={general ? <UplodadProduct /> : <Navigate replace to="/" />}
         />
         <Route
           path="/reactjsx"

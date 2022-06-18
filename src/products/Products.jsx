@@ -77,7 +77,7 @@ const Products = ({ userInfo }) => {
       handleGetAllCartProducts();
     }
     console.log("me estoy ejecuntado");
-  }, [cartProducts, userInfo]);
+  }, [cartProducts, userInfo, handleGetAllCartProducts, id]);
 
   return (
     <div className="map-cart">

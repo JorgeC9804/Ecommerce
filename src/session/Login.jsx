@@ -28,7 +28,7 @@ const Login = ({ setLogin }) => {
   const LoginUser = async () => {
     try {
       const response = await axios.post(
-        "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/users/api/v1/users/login",
+        "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/users/login",
         {
           email,
           password,
@@ -41,7 +41,6 @@ const Login = ({ setLogin }) => {
       handleResponseApi(user);
       handleAuthorization(user);
       localStorage.setItem("login", JSON.stringify(response));
-      dispatch({ type: "USER_INFO", payload: { user } });
     } catch (error) {
       handleResponseApi(undefined);
     }

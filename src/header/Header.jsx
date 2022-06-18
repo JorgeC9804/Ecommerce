@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { GrUserAdmin } from "react-icons/gr";
 import { AiOutlinePoweroff } from "react-icons/ai";
@@ -9,12 +9,13 @@ import { MdSell, MdAudiotrack, MdBackpack, MdWallpaper } from "react-icons/md";
 import { CgPathIntersect } from "react-icons/cg";
 import "./header.styles.css";
 
-const Header = ({ administrator, create }) => {
+const Header = ({ administrator, general }) => {
   const [mouse, setMouse] = useState(false);
   const [headerStatic, setHeaderStatic] = useState(false);
   const [adminT, setAdminT] = useState(false);
   const [userT, setUserT] = useState(false);
   const headerRef = useRef(null);
+  const dispacth = useDispatch();
 
   const { admin, user } = useSelector(state => state.login);
 
@@ -23,6 +24,12 @@ const Header = ({ administrator, create }) => {
   };
   const handleSignOff = () => {
     localStorage.setItem("login", JSON.stringify(""));
+    /**
+     * quitar las secciones del menu
+     * no solo que vuelva vacio a local,
+     * si no que ejecute not session
+     */
+    dispacth({ type: "ADMIN", payload: { admin: false, user: false } });
   };
 
   const mouseOver = () => {
@@ -32,7 +39,7 @@ const Header = ({ administrator, create }) => {
     setMouse(false);
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (admin) {
       setAdminT(true);
     } else if (user) {
@@ -40,7 +47,7 @@ const Header = ({ administrator, create }) => {
     } else if (administrator) {
       administrator === "user" ? setUserT(true) : setAdminT(true);
     }
-  }, [admin, user, administrator]);
+  }, [admin, user, administrator]);*/
 
   useEffect(() => {
     headerRef.current.addEventListener("mouseover", mouseOver);
@@ -133,7 +140,7 @@ const Header = ({ administrator, create }) => {
               <MdWallpaper />
             )}
           </Link>
-          {adminT ? (
+          {admin ? (
             <Link
               className={`link ${mouse ? "information" : undefined}`}
               to="/administrator"
@@ -143,7 +150,7 @@ const Header = ({ administrator, create }) => {
           ) : (
             <></>
           )}
-          {userT ? (
+          {user ? (
             <Link
               to="/profile"
               className={`link ${mouse ? "information" : undefined}`}
@@ -159,7 +166,7 @@ const Header = ({ administrator, create }) => {
           ) : (
             <></>
           )}
-          {create ? (
+          {general ? (
             <Link
               to="/upload-product"
               className={`link ${mouse ? "information" : undefined}`}
@@ -175,18 +182,22 @@ const Header = ({ administrator, create }) => {
           ) : (
             <></>
           )}
-          <button
-            className={`link ${mouse ? "information" : undefined}`}
-            onClick={handleSignOff}
-          >
-            {headerStatic ? (
-              <>sign off</>
-            ) : mouse ? (
-              <>sign off</>
-            ) : (
-              <AiOutlinePoweroff />
-            )}
-          </button>
+          {user || general === true ? (
+            <button
+              className={`link ${mouse ? "information" : undefined}`}
+              onClick={handleSignOff}
+            >
+              {headerStatic ? (
+                <>sign off</>
+              ) : mouse ? (
+                <>sign off</>
+              ) : (
+                <AiOutlinePoweroff />
+              )}
+            </button>
+          ) : (
+            <></>
+          )}
         </nav>
       </div>
     </section>

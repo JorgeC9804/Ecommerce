@@ -11,7 +11,7 @@ import "./pages.css/pages.styles.css";
 import "./pages.css/principalTwo.styles.css";
 import "./pages.css/position.style.css";
 
-const Home = ({ userInfo }) => {
+const Home = ({ userInfo, general }) => {
   const [login, setLogin] = useState(false);
   const [sign, setSign] = useState(true);
 
@@ -28,14 +28,19 @@ const Home = ({ userInfo }) => {
     }
   };
 
-  const handleValidateSesion = () => {
+  const handleValidateSession = () => {
     if (JSON.parse(localStorage.getItem("login"))) {
       setLogin(true);
     } else setLogin(false);
   };
+  /**
+   * debemos ejecutar ValidateSession directamente de useEffect
+   * pero este tiene que ejecutarse cuando se aplique a
+   * sign off
+   */
 
   useEffect(() => {
-    handleValidateSesion();
+    handleValidateSession();
   }, [login]);
 
   return (
@@ -46,7 +51,7 @@ const Home = ({ userInfo }) => {
           <section className="presentation">
             <Presentation />
           </section>
-          {login ? (
+          {general ? (
             <div className="create-sale center-h column">
               <div className="title center">create and sell your product</div>
               <div className="box-sell">

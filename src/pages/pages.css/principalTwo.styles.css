@@ -73,7 +73,6 @@
 .title {
   margin: 20px;
   height: 70px;
-  border: 1px solid rgba(0, 0, 0, 0.486);
   width: 85%;
   border-radius: 8px;
   font-size: 24px;
@@ -130,7 +129,6 @@
   box-shadow: 0px 0px 20px 10px;
 }
 .title:hover {
-  border: 1.5px solid black;
   background: rgba(128, 128, 128, 0.384);
 }
 .create-product:hover {
