@@ -13,19 +13,21 @@ h3 {
   border-left: 1px solid rgb(0, 195, 255);
   border-right: 1px solid rgb(0, 195, 255);
   box-shadow: 10px 0px 10px rgba(42, 80, 81, 0.313);
+
   top: 100px;
   left: 70px;
   width: 800px;
   height: 80vh;
 }
 .session {
-  position: relative;
-  background: linear-gradient(rgba(12, 12, 12, 0.861), #3d3936dd);
+  position: absolute;
+  background: linear-gradient(rgba(85, 81, 81, 0.861), #252423dd);
   top: 100px;
-  left: 180px;
+  left: 65%;
   width: 400px;
   height: 80vh;
   border-radius: 10px;
+  box-shadow: -10px -10px 70px 40px;
 }
 .submit-session {
   position: absolute;

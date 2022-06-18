@@ -1,0 +1,24 @@
+/* ------------ basics positions - left - relative ------------ */
+.p-l-0 {
+  position: relative;
+}
+
+/* ------------ basics positions - right - relative ------------ */
+.p-l-10 {
+  position: relative;
+  left: 00%;
+}
+
+/* ------------ basics positions - top - relative ------------ */
+.p-t-0 {
+}
+
+/* ------------ basics positions - 30px X 2 ------------ */
+.p-t-1 {
+  position: relative;
+  top: 30px;
+}
+.p-t-2 {
+  position: relative;
+  top: 60px;
+}

@@ -28,8 +28,6 @@ const Home = ({ userInfo }) => {
     }
   };
 
-  const YourAss = () => {};
-
   const handleValidateSesion = () => {
     if (JSON.parse(localStorage.getItem("login"))) {
       setLogin(true);

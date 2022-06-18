@@ -1,36 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import io from "socket.io-client";
 import axios from "axios";
 
-const CreateAccount = () => {
+const CreateAccount = ({ setLogin }) => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
-  const [user, setUser] = useState(null);
+  const [username, setUser] = useState(null);
   const [password, setPassword] = useState(null);
   const [nameVoid, setNameVoid] = useState("");
   const [emailVoid, setEmailVoid] = useState("");
   const [userVoid, setUserVoid] = useState("");
   const [passwordVoid, setPasswordVoid] = useState("");
-  const [id, setId] = useState(1);
 
   const socket = io.connect("http://localhost:3000");
 
-  const users = useSelector(state => state.users);
-
-  const dispatch = useDispatch();
+  // const users = useSelector(state => state.users);
 
   const handleSignUp = async e => {
     e.preventDefault();
 
-    if (!name || !email || !user || !password) {
+    if (!name || !email || !username || !password) {
       if (!name) {
         setNameVoid("error");
       }
       if (!email) {
         setEmailVoid("error");
       }
-      if (!user) {
+      if (!username) {
         setUserVoid("error");
       }
       if (!password) {
@@ -39,7 +35,8 @@ const CreateAccount = () => {
     } else {
       e.target.reset();
       CreateUser();
-      dispatch({ type: "ADD_USER", id, name, email, user, password });
+      setLogin(true);
+      // dispatch({ type: "ADD_USER", id, name, email, username, password });
       handleResetInformation();
       socket.emit("send_message", {
         message: `hey ${name}`,
@@ -59,12 +56,20 @@ const CreateAccount = () => {
   };
 
   const CreateUser = async () => {
-    await axios.post("http://localhost:3000/api/v1/users", {
-      name,
-      email,
-      user,
-      password,
-    });
+    /**
+     * la base de mi operacion radica al momento de hacer log in.
+     * al momento de hacer log in, se manda la busqueda dentro de la
+     * base de datos
+     */
+    await axios.post(
+      "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/users",
+      {
+        name,
+        email,
+        username,
+        password,
+      }
+    );
   };
 
   useEffect(() => {
@@ -75,19 +80,21 @@ const CreateAccount = () => {
     }); */
   }, [socket]);
 
-  useEffect(() => {
-    const UsersData = async () => {
-      const { data } = await axios.get("http://localhost:3000/api/v1/users");
-      const { users } = data.data;
-      setId(users.length);
+  /*useEffect(() => {
+    delete useEffect
+    /*const UsersData = async () => {
+      const response = await axios.get("http://localhost:3000/api/v1/users");
+      const { data } = response.data;
       console.log("server");
-      console.log(users);
+      console.log(data);
+      setId(data.length);
     };
 
     console.log("redux");
     console.log(users);
     UsersData();
   }, [users]);
+*/
 
   return (
     <form action="/" onSubmit={handleSignUp} className="column center">
@@ -128,7 +135,11 @@ const CreateAccount = () => {
           name="userName"
           placeholder="enter user-name"
           className={`input ${
-            user ? "shadow-active" : userVoid ? userVoid : "shadow-desactive"
+            username
+              ? "shadow-active"
+              : userVoid
+              ? userVoid
+              : "shadow-desactive"
           }`}
           onChange={e => setUser(e.target.value)}
         />

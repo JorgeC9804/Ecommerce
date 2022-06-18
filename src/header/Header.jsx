@@ -1,28 +1,28 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import Personal from "../pages/Personal";
-import { FaUncharted } from "react-icons/fa";
-import { BsPinAngle, BsPinAngleFill } from "react-icons/bs";
+import { GrUserAdmin } from "react-icons/gr";
+import { AiOutlinePoweroff } from "react-icons/ai";
+import { FaUncharted, FaUserAlt } from "react-icons/fa";
+import { BsPinAngle, BsPinAngleFill, BsCloudUpload } from "react-icons/bs";
 import { MdSell, MdAudiotrack, MdBackpack, MdWallpaper } from "react-icons/md";
 import { CgPathIntersect } from "react-icons/cg";
 import "./header.styles.css";
 
-const Header = () => {
-  // const [personal, setPersonal] = useState(false);
+const Header = ({ administrator, create }) => {
   const [mouse, setMouse] = useState(false);
   const [headerStatic, setHeaderStatic] = useState(false);
+  const [adminT, setAdminT] = useState(false);
+  const [userT, setUserT] = useState(false);
   const headerRef = useRef(null);
-  // const navigate = useNavigate();
 
-  /*const handlePersonal = () => {
-    setPersonal(!personal);
-    if (personal) {
-      navigate("/");
-    }
-  };*/
+  const { admin, user } = useSelector(state => state.login);
 
   const handleHeaderStatic = () => {
     setHeaderStatic(!headerStatic);
+  };
+  const handleSignOff = () => {
+    localStorage.setItem("login", JSON.stringify(""));
   };
 
   const mouseOver = () => {
@@ -31,6 +31,16 @@ const Header = () => {
   const mouseOut = () => {
     setMouse(false);
   };
+
+  useEffect(() => {
+    if (admin) {
+      setAdminT(true);
+    } else if (user) {
+      setUserT(true);
+    } else if (administrator) {
+      administrator === "user" ? setUserT(true) : setAdminT(true);
+    }
+  }, [admin, user, administrator]);
 
   useEffect(() => {
     headerRef.current.addEventListener("mouseover", mouseOver);
@@ -43,7 +53,6 @@ const Header = () => {
       className={headerStatic ? "headerStatic" : "header"}
     >
       <div>
-        {/*<button onClick={handlePersonal}>personal</button>*/}
         <button className="header-static-icon" onClick={handleHeaderStatic}>
           {headerStatic ? <BsPinAngleFill /> : <BsPinAngle />}
         </button>
@@ -124,10 +133,62 @@ const Header = () => {
               <MdWallpaper />
             )}
           </Link>
+          {adminT ? (
+            <Link
+              className={`link ${mouse ? "information" : undefined}`}
+              to="/administrator"
+            >
+              {headerStatic ? <>admin</> : mouse ? <>admin</> : <GrUserAdmin />}
+            </Link>
+          ) : (
+            <></>
+          )}
+          {userT ? (
+            <Link
+              to="/profile"
+              className={`link ${mouse ? "information" : undefined}`}
+            >
+              {headerStatic ? (
+                <>profile</>
+              ) : mouse ? (
+                <>profile</>
+              ) : (
+                <FaUserAlt />
+              )}
+            </Link>
+          ) : (
+            <></>
+          )}
+          {create ? (
+            <Link
+              to="/upload-product"
+              className={`link ${mouse ? "information" : undefined}`}
+            >
+              {headerStatic ? (
+                <>upload</>
+              ) : mouse ? (
+                <>upload</>
+              ) : (
+                <BsCloudUpload />
+              )}
+            </Link>
+          ) : (
+            <></>
+          )}
+          <button
+            className={`link ${mouse ? "information" : undefined}`}
+            onClick={handleSignOff}
+          >
+            {headerStatic ? (
+              <>sign off</>
+            ) : mouse ? (
+              <>sign off</>
+            ) : (
+              <AiOutlinePoweroff />
+            )}
+          </button>
         </nav>
       </div>
-
-      {/* personal ? <Personal /> : ""*/}
     </section>
   );
 };

@@ -26,7 +26,7 @@ const reducer = (state, action) => {
   }
 };
 
-const ReducerLinks = ({ initialState, nameStorage }) => {
+const ReducerLinks = ({ initialState, nameStorage, name }) => {
   // React || NodeJs
   const [state, dispatch] = useReducer(reducer, initialState);
   const [link, setLink] = useState("");
@@ -97,6 +97,7 @@ const ReducerLinks = ({ initialState, nameStorage }) => {
   return (
     <div>
       <Form
+        name={name}
         setLink={setLink}
         setLinkName={setLinkName}
         setPassword={setPassword}

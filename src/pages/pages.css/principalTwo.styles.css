@@ -1,0 +1,171 @@
+.principalTwo {
+  position: absolute;
+  top: 100vh;
+  height: 100vh;
+  width: 100%;
+  /*background: rgb(40, 40, 40);/**/
+  background: rgb(248, 211, 118); /**/
+  background: rgb(40, 40, 40);
+}
+
+/*-------------------------- cart --------------------------*/
+.map-cart {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  top: 50px;
+  left: 130px;
+  border: 1px solid;
+  width: 80%;
+}
+.cart-product {
+  border: 1px solid;
+  margin: 18px;
+  height: 290px;
+  background: yellow;
+  width: 350px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.add-products-cart {
+  background: rgb(91, 203, 254);
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+}
+.log-add-products-cart {
+  background: rgb(255, 161, 30);
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+}
+
+/*-------------------- general ------------------------*/
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-h {
+  display: flex;
+  align-items: center;
+}
+.center-w {
+  display: flex;
+  justify-content: center;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/*-------------------- initi-sale ------------------------*/
+.create-sale {
+  position: absolute;
+  background: linear-gradient(rgb(106, 218, 195), #161616dd);
+  top: 100px;
+  left: 65%;
+  width: 400px;
+  height: 80vh;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.title {
+  margin: 20px;
+  height: 70px;
+  border: 1px solid rgba(0, 0, 0, 0.486);
+  width: 85%;
+  border-radius: 8px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.703);
+  background: rgba(0, 0, 0, 0.349);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  transition: 0.7s;
+}
+.box-sell {
+  height: 400px;
+  width: 85%;
+}
+.intro-small {
+  width: 80%;
+  height: 120px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+}
+.intro-GIF {
+  width: 100%;
+  height: 180px;
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 15px;
+  background: rgba(255, 217, 0, 0.116);
+  background: linear-gradient(rgba(5, 167, 135, 0.473), #161616dd);
+}
+.create-product {
+  margin: 20px;
+  height: 50px;
+  border: 1px solid rgba(141, 141, 141, 0.358);
+  width: 85%;
+  border-radius: 8px;
+  font-size: 24px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  transition: 0.3s;
+  color: rgba(240, 235, 235, 0.71);
+  background: rgba(0, 0, 0, 0.591);
+  text-decoration: none;
+}
+.icon-cloud {
+  animation: gif-cloud 3s infinite;
+}
+.icon-file {
+  animation: gif-file 3s infinite;
+  border: 1px solid rgba(20, 20, 20, 0.445);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px;
+  background: rgba(5, 219, 91, 0.42);
+}
+
+/*-------------------- hover ------------------------*/
+.create-sale:hover {
+  box-shadow: 0px 0px 20px 10px;
+}
+.title:hover {
+  border: 1.5px solid black;
+  background: rgba(128, 128, 128, 0.384);
+}
+.create-product:hover {
+  cursor: pointer;
+  background: transparent;
+}
+
+/*-------------------- profile ------------------------*/
+.principal-profile {
+  background: rgb(40, 40, 40);
+  width: 100%;
+  height: 100vh;
+}
+
+/*-------------------- keyframes ------------------------*/
+@keyframes gif-cloud {
+  0% {
+    /*transform: translate(0px, 0px);
+    /*transform: scale(0.7);*/
+    font-size: 30px;
+  }
+  50% {
+    font-size: 35px;
+  }
+  100% {
+    font-size: 30px;
+  }
+}
+@keyframes gif-file {
+  from {
+    transform: translate(0px, 140px);
+    font-size: 45px;
+  }
+  to {
+    transform: translate(0px, 0px);
+    font-size: 0px;
+  }
+}

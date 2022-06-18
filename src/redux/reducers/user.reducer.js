@@ -2,7 +2,7 @@ import { userTypes } from "../types/userTypes";
 
 const initialState = [];
 
-export const userCounter = (state = initialState, action) => {
+export const user = (state = initialState, action) => {
   switch (action.type) {
     case userTypes.ADD_USER:
       return [

@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
 
 // reducers
-import { counterReducer } from "../reducers/counter.reducer";
-import { userCounter } from "../reducers/user.reducer";
+import { user } from "../reducers/user.reducer";
+import { loginReducer } from "../reducers/login.reducer";
 
 // extensions
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -17,8 +17,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
  */
 
 const reducers = combineReducers({
-  counter: counterReducer,
-  users: userCounter,
+  users: user,
+  login: loginReducer,
 });
 
 export const store = createStore(reducers, composeWithDevTools());

@@ -10,6 +10,7 @@ const OutstandingLinks = () => {
           localStorage.getItem("storageLinkOutstandingLinks")
         )}
         nameStorage={"storageLinkOutstandingLinks"}
+        name={"Outstanding Links"}
       />
     </section>
   );

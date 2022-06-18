@@ -1,6 +1,9 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
-const Login = () => {
+const Login = ({ setLogin }) => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [emailVoid, setEmailVoid] = useState("");
@@ -17,12 +20,65 @@ const Login = () => {
         setPasswordVoid("error");
       }
     } else {
-      e.target.reset();
+      LoginUser();
+    }
+  };
+
+  // log in
+  const LoginUser = async () => {
+    try {
+      const response = await axios.post(
+        "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/users/api/v1/users/login",
+        {
+          email,
+          password,
+        }
+      );
+      /**
+       * la informacion del usurio debe ser almacenada en un redux
+       */
+      const { user } = response.data.data;
+      handleResponseApi(user);
+      handleAuthorization(user);
+      localStorage.setItem("login", JSON.stringify(response));
+      dispatch({ type: "USER_INFO", payload: { user } });
+    } catch (error) {
+      handleResponseApi(undefined);
+    }
+  };
+
+  const handleResponseApi = response => {
+    if (response) {
+      handleResetInformation();
+    } else {
       setEmail("");
       setPassword("");
-      setEmailVoid("");
-      setPasswordVoid("");
+      setEmailVoid("error");
+      setPasswordVoid("error");
     }
+  };
+  /**
+   * al momento de recargar la pagina, esta inicia todos sus componentes, incluyendo
+   * la informacion incluida en Redux, esto provoca que al momento de ingresar la palabra administrator
+   * por medio de la url, se recargue la pagina y reinicie estos componentes.
+   *
+   * lo que se tiene que hacer, es mandar esta informacion guardada
+   */
+
+  const handleAuthorization = Authorization => {
+    if (Authorization.admin === "admin") {
+      dispatch({ type: "ADMIN", payload: { admin: true } });
+    } else if (Authorization.admin === "user") {
+      dispatch({ type: "USER", payload: { user: true } });
+    }
+  };
+
+  const handleResetInformation = () => {
+    setLogin(true);
+    setEmail("");
+    setPassword("");
+    setEmailVoid("");
+    setPasswordVoid("");
   };
 
   return (
