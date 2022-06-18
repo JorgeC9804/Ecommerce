@@ -48,36 +48,37 @@ const Products = ({ userInfo }) => {
     setProducts(data);
   };
 
-  const handleGetAllCartProducts = async () => {
-    /**
-     * llama todos los productos del carrito del usuario
-     *
-     * para obtener solamente los productos de mi carrito
-     *
-     * lo que necesitamos es mandar el id del usuario para que solamente nos devuelva
-     * el carrito que pertenece a ese usuario
-     */
-    const response = await axios.post(
-      "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/userCart/cart",
-      {
-        userId: id,
-      }
-    );
-    const { userCart } = response.data.data;
-    console.log(userCart);
-  };
-
   useEffect(() => {
     /**
      * si useEffect esta ejecutandose, no activa a cart, porque se necesita de un usuario
      * con sesion iniciada para que pueda mandar una peticion
      */
+
+    const handleGetAllCartProducts = async () => {
+      /**
+       * llama todos los productos del carrito del usuario
+       *
+       * para obtener solamente los productos de mi carrito
+       *
+       * lo que necesitamos es mandar el id del usuario para que solamente nos devuelva
+       * el carrito que pertenece a ese usuario
+       */
+      const response = await axios.post(
+        "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/userCart/cart",
+        {
+          userId: id,
+        }
+      );
+      const { userCart } = response.data.data;
+      console.log(userCart);
+    };
+
     handleGetProduct();
     if (id) {
       handleGetAllCartProducts();
     }
     console.log("me estoy ejecuntado");
-  }, [cartProducts, userInfo, handleGetAllCartProducts, id]);
+  }, [cartProducts, userInfo, id]);
 
   return (
     <div className="map-cart">

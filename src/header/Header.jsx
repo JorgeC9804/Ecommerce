@@ -12,8 +12,6 @@ import "./header.styles.css";
 const Header = ({ administrator, general }) => {
   const [mouse, setMouse] = useState(false);
   const [headerStatic, setHeaderStatic] = useState(false);
-  const [adminT, setAdminT] = useState(false);
-  const [userT, setUserT] = useState(false);
   const headerRef = useRef(null);
   const dispacth = useDispatch();
 
@@ -38,16 +36,6 @@ const Header = ({ administrator, general }) => {
   const mouseOut = () => {
     setMouse(false);
   };
-
-  /*useEffect(() => {
-    if (admin) {
-      setAdminT(true);
-    } else if (user) {
-      setUserT(true);
-    } else if (administrator) {
-      administrator === "user" ? setUserT(true) : setAdminT(true);
-    }
-  }, [admin, user, administrator]);*/
 
   useEffect(() => {
     headerRef.current.addEventListener("mouseover", mouseOver);
