@@ -1,19 +1,87 @@
 /* ------------ basics positions - left - relative ------------ */
 .p-l-0 {
   position: relative;
+  left: 10%;
+}
+.p-l-1 {
+  position: relative;
+  left: 20%;
 }
 
 /* ------------ basics positions - right - relative ------------ */
 .p-l-10 {
   position: relative;
-  left: 00%;
+  left: 0;
 }
 
 /* ------------ basics positions - top - relative ------------ */
 .p-t-0 {
+  position: relative;
+  top: 20px;
+}
+.p-t-0-5 {
+  position: relative;
+  top: 80px;
+}
+.p-t-1 {
+  position: relative;
+  top: 100px;
+}
+.p-t-1-5 {
+  position: relative;
+  top: 120px;
+}
+.p-t-2 {
+  position: relative;
+  top: 140px;
+}
+.p-t-2-5-5 {
+  position: relative;
+  top: 150px;
+}
+.p-t-2-5 {
+  position: relative;
+  top: 160px;
+}
+.p-t-3 {
+  position: relative;
+  top: 180px;
+}
+.p-t-3-5 {
+  position: relative;
+  top: 200px;
+}
+.p-t-4 {
+  position: relative;
+  top: 220px;
+}
+.p-t-4-5 {
+  position: relative;
+  top: 240px;
+}
+.p-t-5 {
+  position: relative;
+  top: 260px;
+}
+.p-t-5-5-5 {
+  position: relative;
+  top: 270px;
+}
+.p-t-5-5 {
+  position: relative;
+  top: 280px;
+}
+.p-t-6 {
+  position: relative;
+  top: 300px;
+}
+.p-t-6-5 {
+  position: relative;
+  top: 320px;
 }
 
 /* ------------ basics positions - 30px X 2 ------------ */
+/*
 .p-t-1 {
   position: relative;
   top: 30px;
@@ -22,3 +90,4 @@
   position: relative;
   top: 60px;
 }
+*/

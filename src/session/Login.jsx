@@ -11,7 +11,17 @@ const Login = ({ setLogin }) => {
 
   const handleSignIn = e => {
     e.preventDefault();
-
+    /**
+     * en dado caso de que alguno o los dos campos se dejen
+     * vacios, se manda un error, ya que los campos deben estar llenos
+     *
+     * ahora bien, despueas de comprobar que los campos esten llenos
+     * se pasara a la conexion al servidor mediante la api
+     * para hacer match con la informacion de los campos llenos,
+     * si los campos han sido llenados,pero la informacion
+     * a sido incorrecta, entonces de igual forma
+     * madara un error
+     */
     if (!email || !password) {
       if (!email) {
         setEmailVoid("error");
@@ -20,15 +30,15 @@ const Login = ({ setLogin }) => {
         setPasswordVoid("error");
       }
     } else {
-      LoginUser();
+      LoginUser(e);
     }
   };
 
   // log in
-  const LoginUser = async () => {
+  const LoginUser = async e => {
     try {
       const response = await axios.post(
-        "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/users/login",
+        "http://localhost:3000/api/v1/users/login",
         {
           email,
           password,
@@ -37,12 +47,14 @@ const Login = ({ setLogin }) => {
       /**
        * la informacion del usurio debe ser almacenada en un redux
        */
+      console.log(response);
       const { user } = response.data.data;
       handleResponseApi(user);
       handleAuthorization(user);
       localStorage.setItem("login", JSON.stringify(response));
     } catch (error) {
       handleResponseApi(undefined);
+      e.target.reset();
     }
   };
 

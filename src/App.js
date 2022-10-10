@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Home from "./pages/Home";
 import Header from "./header/Header";
 import ReactJSX from "./pages/React";
@@ -20,19 +20,25 @@ import "./App.css";
 
 function App() {
   const login = JSON.parse(localStorage.getItem("login"));
-  const [general, setGeneral] = useState(false);
+  const [general, setGeneral] = useState(login ? true : false);
   const [userInfo, setUserInfo] = useState([]);
+  const { admin, user } = useSelector(state => state.login);
   const [administrator, setAdmin] = useState(
     login ? login.data.data.user.admin : ""
   );
-
-  const { admin, user } = useSelector(state => state.login);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const login = JSON.parse(localStorage.getItem("login"));
     setUserInfo(login ? login.data.data.user : "");
+    // console.log("debo ser nivel 1");
     setAdmin(login ? login.data.data.user.admin : "");
     setGeneral(login ? true : false);
+    if (login) {
+      const { token } = login.data;
+      dispatch({ type: "TOKEN", payload: { token } });
+      // console.log(token);
+    }
   }, [admin, user]);
 
   useEffect(() => {
@@ -54,7 +60,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home userInfo={userInfo} general={general} />}
+          element={<Home userInfo={userInfo} general={general} log={login} />}
         />
         <Route
           path="/administrator"
@@ -69,12 +75,22 @@ function App() {
         <Route
           path="/profile"
           element={
-            administrator === "user" ? <Profile /> : <Navigate replace to="/" />
+            administrator === "user" || administrator === "admin" ? (
+              <Profile />
+            ) : (
+              <Navigate replace to="/" />
+            )
           }
         />
         <Route
           path="/upload-product"
-          element={general ? <UplodadProduct /> : <Navigate replace to="/" />}
+          element={
+            general ? (
+              <UplodadProduct login={login} />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
         />
         <Route
           path="/reactjsx"

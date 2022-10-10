@@ -17,7 +17,7 @@ const Administrator = () => {
     e.target.reset();
 
     const response = await axios.post(
-      "http://localhost:3000/api/v1/categories",
+      "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/categories",
       {
         nameCategory,
       }
@@ -26,7 +26,9 @@ const Administrator = () => {
   };
 
   const handleGetAllCategories = async () => {
-    const response = await axios.get("http://localhost:3000/api/v1/categories");
+    const response = await axios.get(
+      "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/categories"
+    );
     const { category } = response.data.data;
     setCategory(category);
   };

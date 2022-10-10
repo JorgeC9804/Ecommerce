@@ -45,7 +45,7 @@
   font-size: 30px;
   transform: rotate(-90deg);
   padding: 10px;
-  rotate: 45deg;
+  /* rotate: 45deg; */
   color: rgb(19, 45, 37);
 }
 .p-a-10 {

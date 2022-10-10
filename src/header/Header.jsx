@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { GrUserAdmin } from "react-icons/gr";
 import { AiOutlinePoweroff } from "react-icons/ai";
@@ -14,8 +14,6 @@ const Header = ({ administrator, general }) => {
   const [headerStatic, setHeaderStatic] = useState(false);
   const headerRef = useRef(null);
   const dispacth = useDispatch();
-
-  const { admin, user } = useSelector(state => state.login);
 
   const handleHeaderStatic = () => {
     setHeaderStatic(!headerStatic);
@@ -90,13 +88,7 @@ const Header = ({ administrator, general }) => {
             className={`link ${mouse ? "information" : undefined}`}
             to="/audio"
           >
-            {headerStatic ? (
-              <>accesories</>
-            ) : mouse ? (
-              <>audio</>
-            ) : (
-              <MdAudiotrack />
-            )}
+            {headerStatic ? <>audio</> : mouse ? <>audio</> : <MdAudiotrack />}
           </Link>
           <Link
             className={`link ${mouse ? "information" : undefined}`}
@@ -128,7 +120,7 @@ const Header = ({ administrator, general }) => {
               <MdWallpaper />
             )}
           </Link>
-          {admin ? (
+          {administrator === "admin" ? (
             <Link
               className={`link ${mouse ? "information" : undefined}`}
               to="/administrator"
@@ -138,7 +130,7 @@ const Header = ({ administrator, general }) => {
           ) : (
             <></>
           )}
-          {user ? (
+          {administrator === "user" || administrator === "admin" ? (
             <Link
               to="/profile"
               className={`link ${mouse ? "information" : undefined}`}
@@ -170,7 +162,7 @@ const Header = ({ administrator, general }) => {
           ) : (
             <></>
           )}
-          {user || general === true ? (
+          {general ? (
             <button
               className={`link ${mouse ? "information" : undefined}`}
               onClick={handleSignOff}

@@ -38,3 +38,9 @@ td {
   left: 200px;
   background: white;
 }
+
+/* ---------------------- controllers ---------------------- */
+.controller {
+  position: relative;
+  left: 150px;
+}

@@ -3,7 +3,7 @@ import ReducerLinks from "../reducer/reducer";
 
 const NodeJS = () => {
   return (
-    <section>
+    <section className="controller">
       <h1>Node JS</h1>
       <ReducerLinks
         initialState={JSON.parse(localStorage.getItem("storageLinkNodejs"))}

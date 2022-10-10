@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import io from "socket.io-client";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+// import io from "socket.io-client";
 import axios from "axios";
 
-const CreateAccount = ({ setLogin }) => {
+const CreateAccount = ({ setSign }) => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [username, setUser] = useState(null);
@@ -12,7 +13,9 @@ const CreateAccount = ({ setLogin }) => {
   const [userVoid, setUserVoid] = useState("");
   const [passwordVoid, setPasswordVoid] = useState("");
 
-  const socket = io.connect("http://localhost:3000");
+  const pepe = useSelector(state => state);
+
+  // const socket = io.connect("http://localhost:3000");
 
   // const users = useSelector(state => state.users);
 
@@ -35,12 +38,12 @@ const CreateAccount = ({ setLogin }) => {
     } else {
       e.target.reset();
       CreateUser();
-      setLogin(true);
+      setSign(true);
       // dispatch({ type: "ADD_USER", id, name, email, username, password });
       handleResetInformation();
-      socket.emit("send_message", {
+      /* socket.emit("send_message", {
         message: `hey ${name}`,
-      });
+      }); */
     }
   };
 
@@ -61,24 +64,23 @@ const CreateAccount = ({ setLogin }) => {
      * al momento de hacer log in, se manda la busqueda dentro de la
      * base de datos
      */
-    await axios.post(
-      "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/users",
-      {
-        name,
-        email,
-        username,
-        password,
-      }
-    );
+    const response = await axios.post("http://localhost:3000/api/v1/users", {
+      name,
+      email,
+      username,
+      password,
+    });
+
+    console.log(response);
   };
 
-  useEffect(() => {
-    /* socket.on("receive_message", data => {
+  /*useEffect(() => {
+    socket.on("receive_message", data => {
       console.log(
         "mandando informacion mediante el mismo servidor, diferentes partes"
       );
-    }); */
-  }, [socket]);
+    }); 
+  }, [socket]); */
 
   /*useEffect(() => {
     delete useEffect

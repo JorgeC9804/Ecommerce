@@ -1,7 +1,7 @@
 import React from "react";
+import axios from "axios";
 
 const Form = ({
-  name,
   setLink,
   setLinkName,
   setPassword,
@@ -19,6 +19,10 @@ const Form = ({
 
     const nodejs = JSON.parse(localStorage.getItem("storageLinkNodejs"));
 
+    /**
+     * leera toda la informacion y la pasara directo a la base de datos
+     */
+  /*
     response.forEach(element => {
       handleAddDataBase(
         "Outstanding Links",
@@ -61,7 +65,7 @@ const Form = ({
 
     console.log(response);
   };
-*/
+  */
   // ---------------------------------------------------------------
 
   return (

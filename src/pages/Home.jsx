@@ -11,7 +11,7 @@ import "./pages.css/pages.styles.css";
 import "./pages.css/principalTwo.styles.css";
 import "./pages.css/position.style.css";
 
-const Home = ({ userInfo, general }) => {
+const Home = ({ userInfo, general, log }) => {
   const [login, setLogin] = useState(false);
   const [sign, setSign] = useState(true);
 
@@ -58,7 +58,7 @@ const Home = ({ userInfo, general }) => {
                 <div className="intro-small p-l-0 center">
                   it's very easy to create and upload
                 </div>
-                <div className="intro-GIF p-t-2 p-l-10 center-h column">
+                <div className="intro-GIF p-t-1 p-l-10 center-h column">
                   <BsCloudLightning className="icon-cloud" />
                   <AiOutlineFileZip className="icon-file" />
                 </div>
@@ -86,14 +86,14 @@ const Home = ({ userInfo, general }) => {
               {sign ? (
                 <Login setLogin={setLogin} />
               ) : (
-                <CreateAccount setLogin={setLogin} />
+                <CreateAccount setSign={setSign} />
               )}
             </div>
           )}
         </div>
       </section>
       <section className="principalTwo center-h">
-        <Products userInfo={userInfo} />
+        <Products userInfo={userInfo} log={log} login={login} />
       </section>
       <div style={{ zIndex: "10" }}></div>
     </div>

@@ -103,9 +103,9 @@ const Presentation = () => {
       <div className="cart p-40-l p-40-t" ref={chooseFourRef}>
         <div className="carts p-a-30">art</div>
         <div className="v-line">
-          <div>mas consultado</div>
+          {/* <div>mas consultado</div>
           <div>mas comprado</div>
-          <div>actualizaciones</div>
+      <div>actualizaciones</div>*/}
         </div>
         <div className="circle c-a-p"></div>
       </div>
