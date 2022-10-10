@@ -294,6 +294,7 @@ const Products = ({ userInfo, log, login }) => {
                           </div>
                         );
                       }
+                      return null;
                     })
                   )}
                 </button>
