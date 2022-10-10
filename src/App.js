@@ -39,7 +39,7 @@ function App() {
       dispatch({ type: "TOKEN", payload: { token } });
       // console.log(token);
     }
-  }, [admin, user]);
+  }, [admin, user, dispatch]);
 
   useEffect(() => {
     if (

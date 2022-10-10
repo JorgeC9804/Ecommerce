@@ -146,7 +146,7 @@ const Products = ({ userInfo, log, login }) => {
      */
     handleGetProduct(); // primero cargar los productos
     handleGetMyIcons(); // segundo cargar los guardados
-  }, [responseIcons, login, status]);
+  }, [responseIcons, login, status, ID]);
 
   useEffect(() => {
     /**

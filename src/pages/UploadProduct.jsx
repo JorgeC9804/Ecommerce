@@ -52,13 +52,10 @@ const UplodadProduct = ({ login }) => {
         );*/
         // estamos creando la fila, tenemos al usuario que subio el producto
         // y a dicho producto subido
-        const res = await axios.post(
-          "http://localhost:3000/api/v1/loadedProducts",
-          {
-            userId,
-            productId,
-          }
-        );
+        await axios.post("http://localhost:3000/api/v1/loadedProducts", {
+          userId,
+          productId,
+        });
 
         console.log(response);
         setNamePorduct("");
