@@ -250,7 +250,7 @@ const Products = ({ userInfo, log, login }) => {
                           </div>
                         );
                       }
-                      return;
+                      return null;
                     })
                   )}
                 </button>
