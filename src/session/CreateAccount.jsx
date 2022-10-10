@@ -13,8 +13,6 @@ const CreateAccount = ({ setSign }) => {
   const [userVoid, setUserVoid] = useState("");
   const [passwordVoid, setPasswordVoid] = useState("");
 
-  const pepe = useSelector(state => state);
-
   // const socket = io.connect("http://localhost:3000");
 
   // const users = useSelector(state => state.users);
