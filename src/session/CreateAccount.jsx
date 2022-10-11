@@ -62,12 +62,16 @@ const CreateAccount = ({ setSign }) => {
      * al momento de hacer log in, se manda la busqueda dentro de la
      * base de datos
      */
-    const response = await axios.post("http://localhost:3000/api/v1/users", {
-      name,
-      email,
-      username,
-      password,
-    });
+    const response = await axios.post(
+      "https://ecommerce-nodejs-jorge.herokuapp.com/api/v1/users",
+      {
+        // const response = await axios.post("http://localhost:3000/api/v1/users", {
+        name,
+        email,
+        username,
+        password,
+      }
+    );
 
     console.log(response);
   };
